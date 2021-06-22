@@ -1,4 +1,5 @@
-import { Column, Model, Table ,DataType } from 'sequelize-typescript';
+import { Column, Model, Table ,DataType, ForeignKey, HasMany } from 'sequelize-typescript';
+import { CategoryModel } from '../category/category.model';
 
 @Table({
     tableName: 'store',
@@ -20,5 +21,8 @@ export class StoreModel extends Model {
 
     @Column
     rating: number;
+
+    @HasMany(()=> CategoryModel)
+    categoryId : CategoryModel[]
 
 }
