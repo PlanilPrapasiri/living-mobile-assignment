@@ -22,7 +22,7 @@ export class CategoryModel extends Model {
         type: DataType.UUID,
     })
     @ForeignKey(()=> StoreModel)
-    storeId: string;
+    storeId: StoreModel;
 
     @HasMany(()=> MenuModel)
     menuId : MenuModel[]
