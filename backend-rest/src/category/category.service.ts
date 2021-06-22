@@ -20,6 +20,7 @@ export class CategoryService {
   findAll() {
       return this.categoryRepo.findAll();
   }
+  
   async find(id:string) : Promise<CategoryModel>{
     return this.categoryRepo.findOne({
         where :{id :id}
