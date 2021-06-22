@@ -42,8 +42,10 @@ export class CategoryController {
     }
     @Get('/find/:id')
      @ApiOperation({ summary: 'Find one of Category' })
-     @ApiOperation({
+     @ApiOkResponse({
          description: 'Find of Category',
+         isArray: true,
+         type: CategoryDto,
       })
       async Find(@Param('id') id : string) {
          return this.CategoryService.find(id);
@@ -51,7 +53,7 @@ export class CategoryController {
 
      @Put(':id')
      @ApiOperation({ summary: 'Update of Category' })
-     @ApiOperation({
+     @ApiOkResponse({
          description: 'Update of Category',
       })
       async Update(@Param('id') id: string, @Body() store: CreateCategoryDto ){
@@ -61,7 +63,7 @@ export class CategoryController {
 
      @Delete(':id')
      @ApiOperation({ summary: 'delete of Category' })
-     @ApiOperation({
+     @ApiOkResponse({
          description: 'Delete of Category',
       })
       async Delete(@Param('id') id : string) {
